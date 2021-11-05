@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 from flask.templating import render_template
+from numpy import mat
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -13,7 +15,20 @@ def teamPage():
 
 @app.route("/precios")
 def preciosPage():
-    return render_template('precios.html')
+    nombre=""
+    df = pd.read_csv("precios.csv")
+    buscar= df["PRINCIPIO ACTIVO"]
+    listaresultados=[]
+    for i in range(len(buscar)):
+        if nombre in buscar[i]:
+            listaresultados.append(i)
+    matrizresultados=[]
+    for i in range(len(listaresultados)):
+        matrizresultados.append([])
+        for x in range(6):
+            matrizresultados[i].append(df.iloc[listaresultados[i],x])
+    nmedicamentos=len(matrizresultados)
+    return render_template("precios.html", matrizresultados=matrizresultados, nmedicamentos=nmedicamentos)
 
 @app.route("/ubicacion")
 def mapPage():
@@ -25,6 +40,25 @@ def mapPage_variable():
     comuna=int(request.form['comuna'])
     print(comuna)
     return render_template("ubicacion.html", mapcomuna=linkmapas[comuna])
+
+@app.route("/precios_variable", methods=['POST'])
+def buscarPrecios():
+    nombre=request.form['nombre']
+    nombre=nombre.upper()
+    df = pd.read_csv("precios.csv")
+    buscar= df["PRINCIPIO ACTIVO"]
+    listaresultados=[]
+    for i in range(len(buscar)):
+        if nombre in buscar[i]:
+            listaresultados.append(i)
+    matrizresultados=[]
+    for i in range(len(listaresultados)):
+        matrizresultados.append([])
+        for x in range(6):
+            matrizresultados[i].append(df.iloc[listaresultados[i],x])
+    nmedicamentos=len(matrizresultados)
+    return render_template("precios.html", matrizresultados=matrizresultados, nmedicamentos=nmedicamentos)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
