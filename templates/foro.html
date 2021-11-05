@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Precios</title>
+    <title>Equipo</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="icon" type="image/png" href="https://i.ibb.co/R2KzL03/logoo.png">
   </head>
@@ -15,7 +15,6 @@
       font-size: 1.5rem;
       font-weight: 400;
       }
-
       </style>
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -48,7 +47,6 @@
             <a class="navbar-item" href="/precios">
                 Comparador de precios
             </a>
-
             <a class="navbar-item" href="/foro">
               Foro
           </a>
@@ -67,48 +65,3 @@
           </div>
         </div>
     </nav>
-      <div class="column">
-        <div class="box">
-          <p class="title is-5">Buscar un medicamento:</p>
-        </div>
-      </div>
-      <form action="/precios_variable " class="form-space" method='post'>
-      <div class="field is-grouped mr-6 ml-6">
-        <p class="control is-expanded">
-          <input name="nombre" class="input" type="text" placeholder="Nombre medicamento">
-        </p>
-        <p class="control">
-          <button type="submit" class="button is-primary">Seleccion</button>
-        </p>
-      </div>
-      </form>
-      <section class="section">
-        <div class="columns is-centered">
-      <table class="table table is-bordered is-striped is-narrow is-hoverable">
-        <thead>
-          <tr>
-            <th><abbr title="Codigo">Code</abbr></th>
-            <th><abbr title="Marca">Marca</abbr></th>
-            <th><abbr title="Principio Activo">Principio Activo</abbr></th>
-            <th><abbr title="Precio">Precio</abbr></th>
-            <th><abbr title="Laboratorio">Laboratorio</abbr></th>
-            <th><abbr title="Clasificacion">Clasificacion</abbr></th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for i in range(nmedicamentos) %}
-          <tr>
-            <th>{{matrizresultados[i][0]}}</th>
-            <td>{{matrizresultados[i][1]}}</td>
-            <td>{{matrizresultados[i][2]}}</td>
-            <td>{{matrizresultados[i][3]}}</td>
-            <td>{{matrizresultados[i][4]}}</td>
-            <td>{{matrizresultados[i][5]}}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-        </div>
-      </section>
-  </body>
-</html>
