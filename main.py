@@ -53,8 +53,8 @@ def mapPage_variable():
 
 @app.route("/precios_variable", methods=['POST'])
 def buscarPrecios():
-    nombre=request.form['nombre']
-    nombre=nombre.upper()
+    nombre1=request.form['nombre']
+    nombre=nombre1.upper()
     df = pd.read_csv("precios.csv")
     buscar= df["PRINCIPIO ACTIVO"]
     listaresultados=[]
@@ -67,7 +67,7 @@ def buscarPrecios():
         for x in range(6):
             matrizresultados[i].append(df.iloc[listaresultados[i],x])
     nmedicamentos=len(matrizresultados)
-    return render_template("precios.html", matrizresultados=matrizresultados, nmedicamentos=nmedicamentos, nombre=nombre)
+    return render_template("precios.html", matrizresultados=matrizresultados, nmedicamentos=nmedicamentos, nombre1=nombre1)
 
 
 if __name__ == "__main__":

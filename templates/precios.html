@@ -46,7 +46,7 @@
             </a>
 
             <a class="navbar-item" href="/precios">
-                Comparador de precios
+                Buscador de precios
             </a>
 
             <a class="navbar-item" href="/foro">
@@ -75,7 +75,7 @@
       <form action="/precios_variable " class="form-space" method='post'>
       <div class="field is-grouped mr-6 ml-6">
         <p class="control is-expanded">
-          <input name="nombre" class="input" type="text" placeholder="Nombre medicamento">
+          <input name="nombre" class="input" type="text" placeholder="Nombre medicamento" value={{nombre1}}>
         </p>
         <p class="control">
           <button type="submit" class="button is-primary">Seleccion</button>
@@ -101,7 +101,7 @@
             <th>{{matrizresultados[i][0]}}</th>
             <td>{{matrizresultados[i][1]}}</td>
             <td>{{matrizresultados[i][2]}}</td>
-            <td>{{matrizresultados[i][3]}}</td>
+            <td>${{matrizresultados[i][3]}}</td>
             <td>{{matrizresultados[i][4]}}</td>
             <td>{{matrizresultados[i][5]}}</td>
           </tr>
