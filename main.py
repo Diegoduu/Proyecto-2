@@ -81,7 +81,7 @@ def signup():
 @app.route('/panel')
 def dashboard():
     if 'active' in session:
-        return render_template('dashboard.html')
+        return render_template('foro.html')
     return redirect('/')
 
 @app.route('/check-user', methods=['POST'])
