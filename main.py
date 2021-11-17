@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, session, flash
 from flask.templating import render_template
 import pandas as pd
 
 app = Flask(__name__)
+app.secret_key = 'ANUEL1234'
 
 @app.route("/")
 def mainPage():
@@ -68,6 +69,42 @@ def buscarPrecios():
             matrizresultados[i].append(df.iloc[listaresultados[i],x])
     nmedicamentos=len(matrizresultados)
     return render_template("precios.html", matrizresultados=matrizresultados, nmedicamentos=nmedicamentos, nombre1=nombre1)
+
+@app.route('/ingresar')
+def signin():
+    return render_template('sign-in.html')
+
+@app.route('/registrarme')
+def signup():
+    return render_template('sign-up.html')
+
+@app.route('/panel')
+def dashboard():
+    if 'active' in session:
+        return render_template('dashboard.html')
+    return redirect('/')
+
+@app.route('/check-user', methods=['POST'])
+def create_user():
+    users = [
+        {'name' : 'Diego Duhalde', 'email' : 'dduhalde@alumnos.uai.cl' , 'password' : 'ANUEL1234'},
+        {'name' : 'Carlos Serra', 'email' : 'cserra@alumnos.uai.cl' , 'password' : 'Cserra12'},
+        {'name' : 'Vicente Ramírez', 'email' : 'vicenteramirez@alumnos.uai.cl' , 'password' : 'Vramirez42'},
+        {'name' : 'Benjamín Herrera', 'email' : 'benherrera@alumnos.uai.cl' , 'password' : 'Cserra.4'},
+    ]
+
+    for user in users:
+        if user['email'] == request.form['email'] and user['password'] == request.form['pass']:
+            session['name'] = user['name']
+            session['active'] = True
+            return redirect('/panel')
+    flash('Error en Email o Clave')
+    return redirect("/ingresar")
+
+@app.route('/salir')
+def logout():
+    session.clear()
+    return redirect('/')
 
 
 if __name__ == "__main__":
