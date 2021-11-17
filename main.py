@@ -78,7 +78,7 @@ def signin():
 def signup():
     return render_template('sign-up.html')
 
-@app.route('/panel')
+@app.route('/foro')
 def dashboard():
     if 'active' in session:
         return render_template('foro.html')
@@ -97,7 +97,7 @@ def create_user():
         if user['email'] == request.form['email'] and user['password'] == request.form['pass']:
             session['name'] = user['name']
             session['active'] = True
-            return redirect('/panel')
+            return redirect('/foro')
     flash('Error en Email o Clave')
     return redirect("/ingresar")
 

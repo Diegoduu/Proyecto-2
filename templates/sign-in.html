@@ -48,14 +48,24 @@
             <a class="navbar-item" href="/precios">
               Buscador de precios
             </a>
-            <a class="navbar-item" href="/foro">
-              Foro
-          </a>
+            {% if 'active' in session: %}
+                <a href="/foro" class="navbar-item">
+                    Foro
+                </a>
+                {% endif %}
           </div>
         </div>
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="buttons">
+            {% if 'active' in session: %}
+                        <a class="navbar-item">
+                            {{session['name']}}
+                        </a>
+                        <a href="/salir" class="navbar-item">
+                            Salir
+                        </a>
+              {% else: %}
+              <div class="buttons">
               <a href="/registrarme" class="button is-primary">
                 <strong>Registrarse</strong>
               </a>
@@ -63,27 +73,30 @@
                 Iniciar sesión
               </a>
             </div>
+            {% endif %}
           </div>
         </div>
       </nav>
-      <form action="/check-user" method="POST" class="box">
-        
+      <div class="columns mt-3">
+        <div class="column is-two-thirds is-offset-one-fifth">
+        <form action="/check-user" method="POST" class="box">
         <div class="field">
         <label class="label">Email</label>
         <div class="control">
-            <input class="input" name="email" type="email" placeholder="e.g. alex@example.com">
+            <input class="input" name="email" type="email" placeholder="Ingresa tu correo electrónico">
         </div>
         </div>
     
         <div class="field">
         <label class="label">Password</label>
         <div class="control">
-            <input class="input" name="pass" type="password" placeholder="********">
+            <input class="input" name="pass" type="password" placeholder="Ingresa tu contraseña">
         </div>
         </div>
     
         <button class="button is-primary">Ingresar</button>
     </form>
+    </div>
     </div>
 </div>
 </body>

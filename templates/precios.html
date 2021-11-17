@@ -48,15 +48,24 @@
             <a class="navbar-item" href="/precios">
                 Buscador de precios
             </a>
-
-            <a class="navbar-item" href="/foro">
-              Foro
-          </a>
+            {% if 'active' in session: %}
+                <a href="/foro" class="navbar-item">
+                    Foro
+                </a>
+                {% endif %}
           </div>
         </div>
         <div class="navbar-end">
           <div class="navbar-item">
-            <div class="buttons">
+            {% if 'active' in session: %}
+                        <a class="navbar-item">
+                            {{session['name']}}
+                        </a>
+                        <a href="/salir" class="navbar-item">
+                            Salir
+                        </a>
+              {% else: %}
+              <div class="buttons">
               <a href="/registrarme" class="button is-primary">
                 <strong>Registrarse</strong>
               </a>
@@ -64,6 +73,7 @@
                 Iniciar sesión
               </a>
             </div>
+            {% endif %}
           </div>
         </div>
     </nav>
