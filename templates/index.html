@@ -53,7 +53,7 @@
       </nav>
       <div class="column">
         <div class="box">
-          <p class="title is-5">¿Sabías qué?</p>
+          <p class="title is-5 is-size-2">¿Sabías qué?</p>
           <p class="title is-5"> El 15 de octubre de 2015 el alcalde Daniel Jadue de la comuna de Recoleta, en Santiago de Chile, inauguró la primera farmacia popular del país, en respuesta a la demanda solicitada por los residentes de dicha comuna y como medida tras la sentencia judicial en el caso de colusión de precios en farmacias chilenas, que sacó a la luz pública esta práctica efectuada por las tres cadenas de farmacias más grandes del país con el objeto de controlar los precios del mercado farmacéutico nacional y ofrecer productos accesibles a la población</p>
         </div>
       </div>
@@ -77,7 +77,6 @@
         <body>
         <section class="section">
           <div class="container">
-            <!-- Start Carousel -->
             <div id="carousel-demo" class="carousel">
                       <div class="item">
                           <img src="https://i.ibb.co/s341fFH/sexo0.png" alt="">
@@ -92,10 +91,8 @@
                         <img src="https://i.ibb.co/zs6XdzZ/sexo3.jpg" alt="">
                     </div>
                   </div>
-                  <!-- End Carousel -->
               </div>
           </section>
-  
           <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
           <script>
           bulmaCarousel.attach('#carousel-demo', {
@@ -113,10 +110,43 @@
           </script>
           <div class="column">
             <div class="box">
-              <p class="title is-5">Nueva farmacia popular metropolitana</p>
+              <p class="title is-5 is-size-2">Nueva farmacia popular metropolitana</p>
               <p class="title is-5">Una excelente noticia para el bolsillo de los habitantes de Macul y la Región Metropolitana. Se trata de la inauguración y ya en completo funcionamiento de la nueva farmacia popular de la Asociación Chilena de Farmacias Populares (ACHIFARP), organismo donde Macul es miembro y parte importante de su directorio, lo que permitirá seguir avanzando en la mejora al acceso de remedios e insumos médicos a precios justos para nuestras comunidades. <br> Esta nueva iniciativa de Achifarp, está emplazada en Av. Los Leones #2713, en la comuna de Porovidencia, donde cualquier persona, independiente de su comuna de residencia puede comprar y acceder a la oferta de productos. Esta farmacia, además, realiza venta online y despacho a todo el país.</p>
             </div>
           </div>
+          <section class="section">
+            <div class="container">
+              <div id="carousel-demo" class="carousel">
+                        <div class="item">
+                            <img src="https://i.ibb.co/n6XGRhD/Farmacia-Popular-Metropolitana.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="https://i.ibb.co/LRrtsnj/f1280x720-120902-252577-5716.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="https://i.ibb.co/5GR8CDZ/maxresdefault.jpg" alt="">
+                        </div>
+                        <div class="item">
+                          <img src="https://i.ibb.co/sbfHZ5d/A-UNO-1320832-scaled.jpg" alt="">
+                      </div>
+                    </div>
+                </div>
+            </section>
+            <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+          <script>
+          bulmaCarousel.attach('#carousel-demo', {
+              slidesToScroll: 1,
+              slidesToShow: 1,
+        pagination: true,
+        autoplay: true,
+        loop: true,
+        infinite: true,
+        pauseOnHover: false,
+        navigation: 1,
+        autoplaySpeed: 2500,
+        breakpoints: [{ changePoint: 480, slidesToShow: 1, slidesToScroll: 1 }, { changePoint: 640, slidesToShow: 2, slidesToScroll: 2 }, { changePoint: 768, slidesToShow: 3, slidesToScroll: 3 } ]
+          });
+        </script>
   </html>
   </body>
 </html>
